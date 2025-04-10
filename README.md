@@ -31,14 +31,18 @@ Você pode testar o aplicativo em seu dispositivo Android baixando o APK diretam
 A estrutura do projeto é organizada da seguinte forma:
 
 ```bash
-    mobile-com-llm/ 
-                ├── lib/ # Código fonte principal do aplicativo  
-                │    ├── main.dart # Ponto de entrada do aplicativo
-                │    └── services/ # Serviços como a comunicação com a API          
-                │        └── api_service.dart 
-                ├── android/ # Código específico para a plataforma Android
-                ├── pubspec.yaml # Configurações e dependências do projeto 
-                └── README.md # Documentação do projeto
+mobile-com-llm/ 
+            ├── lib/ # Código fonte principal do aplicativo  
+            │    ├── main.dart # Ponto de entrada do aplicativo
+            │    └── services/ # Serviços como a comunicação com a API          
+            │        └── api_service.dart 
+            ├── backend # Diretório raiz do backend
+            │    ├── app.py # Raiz do backend com a rota
+            │    ├── Procfile # Configuração especifica do render
+            │    └── requirements.txt # Dependências para rodar o ambiente
+            ├── android/ # Código específico para a plataforma Android
+            ├── pubspec.yaml # Configurações e dependências do projeto 
+            └── README.md # Documentação do projeto
 ```
 
 ## Como Executar o Projeto
@@ -67,4 +71,7 @@ A estrutura do projeto é organizada da seguinte forma:
   final result = await ApiService.getAdvice("Sou um estudante. Minha dúvida é: $mensagem");
 ```
 - Altere o texto conforme a necessidade para adaptar o comportamento do modelo às suas especificações.
+
+### 🧑‍💻 Autor
+Cesar Pisa - Desenvolvedor em evolução 🚀
    
