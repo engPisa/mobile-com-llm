@@ -2,10 +2,11 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService{
-  static const String _baseUrl = 'url_render';
+  static const String _rota = '/get_advice';
+  static const String _baseUrl = 'https://make-communication.onrender.com';
   
   static Future<String> getAdvice(String message) async{
-    final url = Uri.parse('$_baseUrl/gemini');
+    final url = Uri.parse('$_baseUrl$_rota');
 
     final response = await http.post(
       url,
