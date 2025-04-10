@@ -29,7 +29,7 @@ def make_communication():
         "reply": "Texto gerado pelo modelo Gemini"
     }
 
-    ❌ Resposta de erro (exemplo):
+    ❌ Resposta de erro (status 500):
     {
         "error": "Erro ao gerar resposta"
     }
@@ -37,7 +37,7 @@ def make_communication():
     🧠 Observação:
     - É necessário definir a variável de ambiente GEMINI_API_KEY com a chave de API válida.
     - O modelo utilizado é o gemini-2.0-flash e a chamada é feita para o endpoint:
-      https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?
+      https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key{api_key}
 
     📦 Usos:
     - Dicas de estudo
@@ -64,9 +64,8 @@ def make_communication():
       "reply": reply
     })
   else:
+      error_data = response.json()["error"]
       return jsonify({
-        "error": "Erro ao gerar resposta"
-      }),500 # Internal_server_error
-  
-if __name__ == "__main__":
-   app.run(debug=True)
+        "error": "Erro ao gerar resposta",
+        "message": error_data["message"]
+      }),error_data["code"] # http_status_code
