@@ -13,9 +13,10 @@ class ApiService{
       headers: {'Content-Type':'application/json'},
       body: jsonEncode({'message':message}),
     );
+
     if (response.statusCode == 200){
       final data = jsonDecode(response.body);
-      return data['response'] ?? 'Falha ao obter resposta.';
+      return data['reply'] ?? 'Falha ao obter resposta.';
     } else {
       final error = jsonDecode(response.body);
       final erro = error['message'] ?? 'Erro desconhecido';
